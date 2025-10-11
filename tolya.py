@@ -232,6 +232,7 @@ async def add(ctx, url):
         with yt_dlp.YoutubeDL(YDL_OPTIONS) as ydl:
             haveURL=False
             if ("youtube.com" or "youtu.be") in url:
+                url=url.split("?si=")[0]
                 haveURL=True
                 try:
                     info = ydl.extract_info(url.split(" ")[0], download=False, process=False)
@@ -407,6 +408,14 @@ async def search(ctx, *user_request):
         await ctx.message.reply(SEARCH_OUT_OF_TIME)
         return
 
+    print(f"content {msg.content}")
+    try:
+        embed = discord.Embed(description=f'{msg.content}',
+                              colour=discord.Colour.green())
+        await ctx.channel.send(embed=embed)
+    except Exception as e:
+        print(e)
+
     if msg.content:
         msg=msg.content
 
@@ -548,14 +557,14 @@ async def queue(ctx,page=0):
                     else:
                         k+=1
                 if k==fq_pages:
-                    await ctx.message.reply(f"{songs_queue.get_qfp(serverid)[page-1]}\n{QUEUE_CURRENT_PAGE[0]}: {k}"
+                    await ctx.message.reply(f"{songs_queue.get_qfp(serverid)[page-1]}\n{QUEUE_CURRENT_PAGE[0]} {k} "
                                             f"{QUEUE_CURRENT_PAGE[1]} {fq_pages}. ({QUEUE_CURRENT_PAGE[2]} `-queue 2`)")
             else:
                 if page>fq_pages or page<1:
                     await ctx.message.reply(QUEUE_NO_PAGE + f' ({page})')
                     return
                 else:
-                    await ctx.message.reply(f"{songs_queue.get_qfp(serverid)[page-1]}\n{QUEUE_CURRENT_PAGE[0]}: {page}"
+                    await ctx.message.reply(f"{songs_queue.get_qfp(serverid)[page-1]}\n{QUEUE_CURRENT_PAGE[0]} {page} "
                                             f"{QUEUE_CURRENT_PAGE[1]} {fq_pages}. ({QUEUE_CURRENT_PAGE[2]} `-queue 2`)")
             songs_queue.set_qfp(serverid,[])
     else:
