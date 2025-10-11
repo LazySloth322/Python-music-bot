@@ -364,6 +364,7 @@ async def audio_player(ctx,voice_client): #track player
     except (ClientException, Exception) as e:
         logger.error(f"client {e}")
         logger.exception(e)
+        return 1
 
 
 @bot.command(description="plays music by url or keyword search",
@@ -379,7 +380,8 @@ async def play(ctx, *url):
         if (await add(ctx, ' '.join(url))==1):
             raise Exception("Cannot extract info")        
 
-        await audio_player(ctx,ctx.voice_client)
+        if (await audio_player(ctx,ctx.voice_client)==1):
+            raise Exception
     except Exception as e:
         ctx.channel.send(f"{PLAY_ERROR} {e}")
         logger.error(f'Play error: {e}')
