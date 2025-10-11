@@ -144,6 +144,8 @@ async def add(ctx, url):
         await ctx.channel.send(ADD_MYMIX_WARNING)
         url = url.split("&list=")[0]
 
+    url = url.split("?si=")[0]
+
     # Плейлисты
     if 'list' in url:
         with yt_dlp.YoutubeDL(YDL_OPTIONS) as ydl:
@@ -232,7 +234,6 @@ async def add(ctx, url):
         with yt_dlp.YoutubeDL(YDL_OPTIONS) as ydl:
             haveURL=False
             if ("youtube.com" or "youtu.be") in url:
-                url=url.split("?si=")[0]
                 haveURL=True
                 try:
                     info = ydl.extract_info(url.split(" ")[0], download=False, process=False)
