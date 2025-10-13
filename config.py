@@ -10,7 +10,7 @@ YDL_OPTIONS = {
     'format': 'bestaudio/best',
     'extractaudio': True,
     'simulate': True,
-    'preferredquality': 0,
+    #'preferredquality': 0,
     'audioformat':'opus',
     'key': 'FFmpegExtractAudio',
     'quiet': True,
@@ -26,4 +26,5 @@ FFMPEG_PATH = "ffmpeg.exe"
 FFMPEG_OPTIONS = {
     'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5' , 
     'options': '-vn'
+
 }
