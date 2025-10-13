@@ -376,7 +376,9 @@ async def play(ctx, *url):
             return
         if await join(ctx)==1:
             return
+
         await asyncio.sleep(3.1) #waiting for join func
+
         if (await add(ctx, ' '.join(url))==1):
             raise Exception("Cannot extract info")        
 
@@ -411,13 +413,13 @@ async def search(ctx, *user_request):
         await ctx.message.reply(SEARCH_OUT_OF_TIME)
         return
 
-    print(f"content {msg.content}")
-    try:
-        embed = discord.Embed(description=f'{msg.content}',
-                              colour=discord.Colour.green())
-        await ctx.channel.send(embed=embed)
-    except Exception as e:
-        print(e)
+    #print(f"content {msg.content}")
+    # try:
+    #     embed = discord.Embed(description=f'{msg.content}',
+    #                           colour=discord.Colour.green())
+    #     await ctx.channel.send(embed=embed)
+    # except Exception as e:
+    #     print(e)
 
     if msg.content:
         msg=msg.content
