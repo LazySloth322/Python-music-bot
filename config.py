@@ -2,7 +2,7 @@ import yt_logger
 
 MAX_PLAYLIST_LENGTH = 250
 
-COMMAND_PREFIX="!"
+COMMAND_PREFIX="-"
 
 BOT_TOKEN='YOUR TOKEN'
 
@@ -28,3 +28,4 @@ FFMPEG_OPTIONS = {
     'options': '-vn'
 
 }
+
