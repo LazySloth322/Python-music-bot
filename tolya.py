@@ -385,7 +385,7 @@ async def play(ctx, *url):
         if (await audio_player(ctx,ctx.voice_client)==1):
             raise Exception
     except Exception as e:
-        ctx.channel.send(f"{PLAY_ERROR} {e}")
+        await ctx.channel.send(f"{PLAY_ERROR} {e}")
         logger.error(f'Play error: {e}')
         return
 
@@ -670,3 +670,4 @@ async def now_playing(ctx):
 
 ### BOT RUN ###
 bot.run(BOT_TOKEN,log_formatter=formatter,log_handler=None)
+
