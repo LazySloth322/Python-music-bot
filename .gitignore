@@ -1,0 +1,17 @@
+.idea/
+__pycache__/
+venv/
+.venv/
+
+*.py[cod]
+
+
+config.py
+test.py
+
+text.txt
+del.txt
+
+*.log
+*.lnk
+
