@@ -1,7 +1,7 @@
 # __WORK IN PROGRESS__
 
 # About
-Multiserver python-based discord bot for listening YouTube videos. This bot have dynamic music queue and support playlists up to 250 tracks.  
+Multiserver python-based discord bot for listening SoundCloud tracks. This bot have dynamic music queue and support playlists up to 250 tracks.  
 
 Interface: RU  
 Logging: ENG
