@@ -451,7 +451,7 @@ async def search(ctx, *user_request):
             return
 
     await ctx.message.reply(f"```"
-    f"{backslash_n.join(str(i) +') '  + searchResult[j]['title'] + ' (' + searchResult[j]['artist'] + ') ' for i, j in enumerate(range(len(searchResult)), 1))}\n"
+    f"{backslash_n.join(str(i) +') ' + searchResult[j]['artist']  + searchResult[j]['title'] for i, j in enumerate(range(len(searchResult)), 1))}\n"
     f"\n{SEARCH_MENU_HINT}```")
 
     try:
