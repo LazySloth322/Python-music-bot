@@ -11,7 +11,9 @@ test.py
 
 text.txt
 del.txt
+matches.txt
 
+*.csv
 *.log
 *.lnk
 
